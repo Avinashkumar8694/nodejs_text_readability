@@ -20,7 +20,7 @@
         "path": "readability/fleschreadingease",
         "uploadpath": "",
         "summary": "",
-        "description": "",
+        "description": "api base url:   http://thenextone.servehttp.com/api/",
         "method": "post",
         "sequenceId": "",
         "consumes": "",
@@ -31,19 +31,35 @@
             "readability/fleschreadingease": {
                 "post": {
                     "summary": "",
-                    "description": "",
+                    "description": "api base url:   http://thenextone.servehttp.com/api/",
                     "consumes": [
                         "application/json"
                     ],
                     "produces": [],
-                    "parameters": [],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "fleschReadingEase",
+                            "description": "{\"text\" : \"Your text goes here\"}",
+                            "required": true
+                        }
+                    ],
                     "responses": {}
                 }
             }
         },
         "editableListData": {
             "responses": [],
-            "params": [],
+            "params": [
+                {
+                    "key": "fleschReadingEase",
+                    "desc": "{\"text\" : \"Your text goes here\"}",
+                    "type": "body",
+                    "required": true,
+                    "rowId": "sd_A1ZZEHd7LldJquts",
+                    "valid": true
+                }
+            ],
             "produces": [],
             "consumes": [
                 {

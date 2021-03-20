@@ -100,10 +100,17 @@ export class readability {
       this.swaggerDocument['paths']['/readability/fleschreadingease'] = {
         post: {
           summary: '',
-          description: '',
+          description: 'api base url:   http://thenextone.servehttp.com/api/',
           consumes: ['application/json'],
           produces: [],
-          parameters: [],
+          parameters: [
+            {
+              in: 'body',
+              name: 'fleschReadingEase',
+              description: '{"text" : "Your text goes here"}',
+              required: true,
+            },
+          ],
           responses: {},
         },
       };
@@ -112,10 +119,17 @@ export class readability {
         'post'
       ] = {
         summary: '',
-        description: '',
+        description: 'api base url:   http://thenextone.servehttp.com/api/',
         consumes: ['application/json'],
         produces: [],
-        parameters: [],
+        parameters: [
+          {
+            in: 'body',
+            name: 'fleschReadingEase',
+            description: '{"text" : "Your text goes here"}',
+            required: true,
+          },
+        ],
         responses: {},
       };
     }
