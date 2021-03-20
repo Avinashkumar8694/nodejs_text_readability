@@ -10,7 +10,7 @@
 /app/node_modules
 /app/platforms
 /app/plugins
-
+node_modules
 # profiling files
 chrome-profiler-events.json
 speed-measure-plugin.json

@@ -1,0 +1,6 @@
+[SSD] 20-03-2021 14:07:33 [34mdebug[39m: APP_ENV :: prod
+[SSD] 20-03-2021 14:07:33 [34mdebug[39m: loading env file :: C:\Users\Neutrinos\Documents\neutrinos\test-demo\api-list\environments\prod.env
+[SSD] 20-03-2021 14:07:33 [34mdebug[39m: mounting all middlewares for service :: readability
+[SSD] 20-03-2021 14:07:33 [34mdebug[39m: mounting all paths for service :: readability
+[SSD] 20-03-2021 14:07:33 [32minfo[39m: N-SD express application context path: /api
+[SSD] 20-03-2021 14:07:33 [32minfo[39m: N-SD express application is up and running on port: 8081
