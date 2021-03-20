@@ -1,0 +1,107 @@
+[
+    {
+        "id": "ssd_mw_ws",
+        "type": "tab",
+        "createdDate": "createdDate",
+        "relativeParentPath": "",
+        "label": "Middlewares",
+        "disabled": false,
+        "info": "",
+        "generateNext": true
+    },
+    {
+        "id": "ssd_global_middleware_start_id",
+        "type": "GlobalMiddlewareStart",
+        "z": "ssd_mw_ws",
+        "viewType": "server",
+        "nodeType": "flow",
+        "inputs": 0,
+        "outputs": 1,
+        "category": "Middleware",
+        "__n_excludedFromValidation__": {},
+        "x": 141,
+        "y": 102.8125,
+        "wires": [
+            [
+                "sd_Tp9jNbUvUZ1kJnAn"
+            ]
+        ],
+        "generateNext": true
+    },
+    {
+        "id": "ssd_global_next_id",
+        "type": "GlobalNext",
+        "z": "ssd_mw_ws",
+        "viewType": "server",
+        "nodeType": "flow",
+        "inputs": 1,
+        "outputs": 1,
+        "category": "Middleware",
+        "__n_excludedFromValidation__": {},
+        "x": 474.1875,
+        "y": 103.90625,
+        "wires": [
+            [
+                "ssd_global_middleware_end_id"
+            ]
+        ],
+        "generateNext": true
+    },
+    {
+        "id": "ssd_global_middleware_end_id",
+        "type": "GlobalMiddlewareEnd",
+        "z": "ssd_mw_ws",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 0,
+        "category": "Middleware",
+        "__n_excludedFromValidation__": {},
+        "x": 657.84375,
+        "y": 102.8125,
+        "wires": [],
+        "generateNext": true
+    },
+    {
+        "id": "sd_Tp9jNbUvUZ1kJnAn",
+        "type": "CORS",
+        "z": "ssd_mw_ws",
+        "viewType": "server",
+        "nodeType": "middleware",
+        "name": "",
+        "methods": [],
+        "origin": true,
+        "editableListData": {
+            "methods": [
+                {
+                    "key": "POST",
+                    "rowId": "sd_PvlCSfah2LyGnPCJ",
+                    "valid": true
+                },
+                {
+                    "key": "GET",
+                    "rowId": "sd_T6PPuqu3SiQWddc0",
+                    "valid": true
+                }
+            ],
+            "allowedHeaders": [],
+            "exposedHeaders": []
+        },
+        "showOriginToggleButton": true,
+        "credentials": false,
+        "maxAge": "",
+        "preflightContinue": false,
+        "optionsSuccessStatus": "",
+        "functionName": "sd_Tp9jNbUvUZ1kJnAn",
+        "category": "Global",
+        "__n_excludedFromValidation__": {},
+        "x": 308.890625,
+        "y": 103.78125,
+        "wires": [
+            [
+                "ssd_global_next_id"
+            ]
+        ]
+    }
+]

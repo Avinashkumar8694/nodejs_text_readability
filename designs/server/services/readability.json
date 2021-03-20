@@ -1,0 +1,1187 @@
+[
+    {
+        "id": "SSD_SERVICE_ID_sd_AXsH5mI4aMeYTqYm",
+        "type": "tab",
+        "createdDate": "2021-03-20T05:30:56.860Z",
+        "relativeParentPath": "",
+        "label": "readability",
+        "disabled": false,
+        "info": "",
+        "generateNext": true,
+        "serviceName": "readability"
+    },
+    {
+        "id": "sd_TwslbAQbCEG5Iw0B",
+        "type": "HttpIn",
+        "z": "SSD_SERVICE_ID_sd_AXsH5mI4aMeYTqYm",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "fleschReadingEase",
+        "path": "readability/fleschreadingease",
+        "uploadpath": "",
+        "summary": "",
+        "description": "",
+        "method": "post",
+        "sequenceId": "",
+        "consumes": "",
+        "produces": "",
+        "filetype": "path",
+        "acceptFileUpload": false,
+        "httpOptions": {
+            "readability/fleschreadingease": {
+                "post": {
+                    "summary": "",
+                    "description": "",
+                    "consumes": [
+                        "application/json"
+                    ],
+                    "produces": [],
+                    "parameters": [],
+                    "responses": {}
+                }
+            }
+        },
+        "editableListData": {
+            "responses": [],
+            "params": [],
+            "produces": [],
+            "consumes": [
+                {
+                    "key": "application/json",
+                    "rowId": "sd_CrcE4GWsIGZgxlXW",
+                    "valid": true
+                }
+            ]
+        },
+        "inputs": 0,
+        "outputs": 1,
+        "category": "HTTP",
+        "__ssdTypeInputs__": {
+            "uploadpath": {
+                "type": "str",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "x": 125,
+        "y": 120,
+        "wires": [
+            [
+                "sd_b0hbAANT035e7AQA"
+            ]
+        ],
+        "generateNext": true,
+        "serviceName": "readability",
+        "functionName": "sd_TwslbAQbCEG5Iw0B"
+    },
+    {
+        "id": "sd_b0hbAANT035e7AQA",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_AXsH5mI4aMeYTqYm",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "const rs = require('text-readability')\n\nlet body = bh.input.body;\n\nif (body && body.text) {\n    bh.result ={\n      fleschReadingEaseScore: rs.fleschReadingEase(body.text)\n    } \n    bh.statusCode = 200;\n} else {\n    bh.statusCode = 500;\n    bh.result = {\n        message : 'invalid body'\n    }\n}",
+        "functionName": "sd_b0hbAANT035e7AQA",
+        "category": "Function",
+        "__n_excludedFromValidation__": {},
+        "x": 300,
+        "y": 120,
+        "wires": [
+            [
+                "sd_PmhiYdcHbhYeWxxv"
+            ]
+        ],
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "readability"
+    },
+    {
+        "id": "sd_PmhiYdcHbhYeWxxv",
+        "type": "HttpOut",
+        "z": "SSD_SERVICE_ID_sd_AXsH5mI4aMeYTqYm",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "headers": {},
+        "responseBody": {
+            "type": "bh",
+            "value": "result",
+            "ssd_typedInputField": true
+        },
+        "httpcode": {
+            "type": "bh",
+            "value": "statusCode",
+            "ssd_typedInputField": true
+        },
+        "responseType": "obj",
+        "responseMapping": {
+            "status": "bh.statusCode",
+            "obj": "bh.result",
+            "send": "bh.result"
+        },
+        "inputs": 1,
+        "outputs": 0,
+        "editableListData": {
+            "headers": []
+        },
+        "cookiesList": {},
+        "switchStates": {
+            "headers": "Map",
+            "cookies": "Map"
+        },
+        "functionName": "sd_PmhiYdcHbhYeWxxv",
+        "category": "HTTP",
+        "__n_excludedFromValidation__": {},
+        "x": 685,
+        "y": 760,
+        "wires": [],
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "readability"
+    },
+    {
+        "id": "sd_rThyAyl14w41nTAj",
+        "type": "HttpIn",
+        "z": "SSD_SERVICE_ID_sd_AXsH5mI4aMeYTqYm",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "fleschKincaidGrade",
+        "path": "readability/fleschKincaidGrade",
+        "uploadpath": "",
+        "summary": "",
+        "description": "",
+        "method": "post",
+        "sequenceId": "",
+        "consumes": "",
+        "produces": "",
+        "filetype": "path",
+        "acceptFileUpload": false,
+        "httpOptions": {
+            "readability/fleschKincaidGrade": {
+                "post": {
+                    "summary": "",
+                    "description": "",
+                    "consumes": [
+                        "application/json"
+                    ],
+                    "produces": [],
+                    "parameters": [],
+                    "responses": {}
+                }
+            }
+        },
+        "editableListData": {
+            "responses": [],
+            "params": [],
+            "produces": [],
+            "consumes": [
+                {
+                    "key": "application/json",
+                    "rowId": "sd_CrcE4GWsIGZgxlXW",
+                    "valid": true
+                }
+            ]
+        },
+        "inputs": 0,
+        "outputs": 1,
+        "category": "HTTP",
+        "__ssdTypeInputs__": {
+            "uploadpath": {
+                "type": "str",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "x": 125,
+        "y": 240,
+        "wires": [
+            [
+                "sd_6IeQjDPNewbJ2Kn6"
+            ]
+        ],
+        "generateNext": true,
+        "serviceName": "readability",
+        "functionName": "sd_rThyAyl14w41nTAj"
+    },
+    {
+        "id": "sd_6IeQjDPNewbJ2Kn6",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_AXsH5mI4aMeYTqYm",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "const rs = require('text-readability')\n\nlet body = bh.input.body;\n\nif (body && body.text) {\n    bh.result ={\n      fleschKincaidGrade: rs.fleschKincaidGrade(body.text)\n    } \n    bh.statusCode = 200;\n} else {\n    bh.statusCode = 500;\n    bh.result = {\n        message : 'invalid body'\n    }\n}",
+        "functionName": "sd_6IeQjDPNewbJ2Kn6",
+        "category": "Function",
+        "__n_excludedFromValidation__": {},
+        "x": 300,
+        "y": 240,
+        "wires": [
+            [
+                "sd_PmhiYdcHbhYeWxxv"
+            ]
+        ],
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "readability"
+    },
+    {
+        "id": "sd_xEFS4GTDkrHfImSQ",
+        "type": "HttpIn",
+        "z": "SSD_SERVICE_ID_sd_AXsH5mI4aMeYTqYm",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "colemanLiauIndex",
+        "path": "readability/colemanLiauIndex",
+        "uploadpath": "",
+        "summary": "",
+        "description": "",
+        "method": "post",
+        "sequenceId": "",
+        "consumes": "",
+        "produces": "",
+        "filetype": "path",
+        "acceptFileUpload": false,
+        "httpOptions": {
+            "readability/colemanLiauIndex": {
+                "post": {
+                    "summary": "",
+                    "description": "",
+                    "consumes": [
+                        "application/json"
+                    ],
+                    "produces": [],
+                    "parameters": [],
+                    "responses": {}
+                }
+            }
+        },
+        "editableListData": {
+            "responses": [],
+            "params": [],
+            "produces": [],
+            "consumes": [
+                {
+                    "key": "application/json",
+                    "rowId": "sd_CrcE4GWsIGZgxlXW",
+                    "valid": true
+                }
+            ]
+        },
+        "inputs": 0,
+        "outputs": 1,
+        "category": "HTTP",
+        "__ssdTypeInputs__": {
+            "uploadpath": {
+                "type": "str",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "x": 125,
+        "y": 340,
+        "wires": [
+            [
+                "sd_HpGg14ULnSXkHOHH"
+            ]
+        ],
+        "generateNext": true,
+        "serviceName": "readability",
+        "functionName": "sd_xEFS4GTDkrHfImSQ"
+    },
+    {
+        "id": "sd_HpGg14ULnSXkHOHH",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_AXsH5mI4aMeYTqYm",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "const rs = require('text-readability')\n\nlet body = bh.input.body;\n\nif (body && body.text) {\n    bh.result ={\n      colemanLiauIndexGradelevel: rs.colemanLiauIndex(body.text)\n    } \n    bh.statusCode = 200;\n} else {\n    bh.statusCode = 500;\n    bh.result = {\n        message : 'invalid body'\n    }\n}",
+        "functionName": "sd_HpGg14ULnSXkHOHH",
+        "category": "Function",
+        "__n_excludedFromValidation__": {},
+        "x": 300,
+        "y": 340,
+        "wires": [
+            [
+                "sd_PmhiYdcHbhYeWxxv"
+            ]
+        ],
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "readability"
+    },
+    {
+        "id": "sd_Fio2yqDGhwgmTmNz",
+        "type": "HttpIn",
+        "z": "SSD_SERVICE_ID_sd_AXsH5mI4aMeYTqYm",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "automatedReadabilityIndex",
+        "path": "readability/automatedReadabilityIndex",
+        "uploadpath": "",
+        "summary": "",
+        "description": "",
+        "method": "post",
+        "sequenceId": "",
+        "consumes": "",
+        "produces": "",
+        "filetype": "path",
+        "acceptFileUpload": false,
+        "httpOptions": {
+            "readability/automatedReadabilityIndex": {
+                "post": {
+                    "summary": "",
+                    "description": "",
+                    "consumes": [
+                        "application/json"
+                    ],
+                    "produces": [],
+                    "parameters": [],
+                    "responses": {}
+                }
+            }
+        },
+        "editableListData": {
+            "responses": [],
+            "params": [],
+            "produces": [],
+            "consumes": [
+                {
+                    "key": "application/json",
+                    "rowId": "sd_CrcE4GWsIGZgxlXW",
+                    "valid": true
+                }
+            ]
+        },
+        "inputs": 0,
+        "outputs": 1,
+        "category": "HTTP",
+        "__ssdTypeInputs__": {
+            "uploadpath": {
+                "type": "str",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "x": 132,
+        "y": 442.8125,
+        "wires": [
+            [
+                "sd_pUIltE8eDF8i91Y5"
+            ]
+        ],
+        "generateNext": true,
+        "serviceName": "readability",
+        "functionName": "sd_Fio2yqDGhwgmTmNz"
+    },
+    {
+        "id": "sd_pUIltE8eDF8i91Y5",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_AXsH5mI4aMeYTqYm",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "const rs = require('text-readability')\n\nlet body = bh.input.body;\n\nif (body && body.text) {\n    bh.result ={\n      automatedReadabilityIndexGradeLevel: rs.automatedReadabilityIndex(body.text)\n    } \n    bh.statusCode = 200;\n} else {\n    bh.statusCode = 500;\n    bh.result = {\n        message : 'invalid body'\n    }\n}",
+        "functionName": "sd_pUIltE8eDF8i91Y5",
+        "category": "Function",
+        "__n_excludedFromValidation__": {},
+        "x": 307,
+        "y": 442.8125,
+        "wires": [
+            [
+                "sd_PmhiYdcHbhYeWxxv"
+            ]
+        ],
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "readability"
+    },
+    {
+        "id": "sd_4azjeRgj7yHArYsy",
+        "type": "HttpIn",
+        "z": "SSD_SERVICE_ID_sd_AXsH5mI4aMeYTqYm",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "difficultWords",
+        "path": "readability/difficultWords",
+        "uploadpath": "",
+        "summary": "",
+        "description": "",
+        "method": "post",
+        "sequenceId": "",
+        "consumes": "",
+        "produces": "",
+        "filetype": "path",
+        "acceptFileUpload": false,
+        "httpOptions": {
+            "readability/difficultWords": {
+                "post": {
+                    "summary": "",
+                    "description": "",
+                    "consumes": [
+                        "application/json"
+                    ],
+                    "produces": [],
+                    "parameters": [],
+                    "responses": {}
+                }
+            }
+        },
+        "editableListData": {
+            "responses": [],
+            "params": [],
+            "produces": [],
+            "consumes": [
+                {
+                    "key": "application/json",
+                    "rowId": "sd_CrcE4GWsIGZgxlXW",
+                    "valid": true
+                }
+            ]
+        },
+        "inputs": 0,
+        "outputs": 1,
+        "category": "HTTP",
+        "__ssdTypeInputs__": {
+            "uploadpath": {
+                "type": "str",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "x": 125,
+        "y": 540,
+        "wires": [
+            [
+                "sd_TBEn7CBkDi6R46qq"
+            ]
+        ],
+        "generateNext": true,
+        "serviceName": "readability",
+        "functionName": "sd_4azjeRgj7yHArYsy"
+    },
+    {
+        "id": "sd_TBEn7CBkDi6R46qq",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_AXsH5mI4aMeYTqYm",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "const rs = require('text-readability')\n\nlet body = bh.input.body;\n\nif (body && body.text) {\n    bh.result ={\n      difficultWords: rs.difficultWords(body.text)\n    } \n    bh.statusCode = 200;\n} else {\n    bh.statusCode = 500;\n    bh.result = {\n        message : 'invalid body'\n    }\n}",
+        "functionName": "sd_TBEn7CBkDi6R46qq",
+        "category": "Function",
+        "__n_excludedFromValidation__": {},
+        "x": 300,
+        "y": 540,
+        "wires": [
+            [
+                "sd_PmhiYdcHbhYeWxxv"
+            ]
+        ],
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "readability"
+    },
+    {
+        "id": "sd_aifdTTdXjme4BN56",
+        "type": "HttpIn",
+        "z": "SSD_SERVICE_ID_sd_AXsH5mI4aMeYTqYm",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "daleChallReadabilityScore",
+        "path": "readability/daleChallReadabilityScore",
+        "uploadpath": "",
+        "summary": "",
+        "description": "",
+        "method": "post",
+        "sequenceId": "",
+        "consumes": "",
+        "produces": "",
+        "filetype": "path",
+        "acceptFileUpload": false,
+        "httpOptions": {
+            "readability/daleChallReadabilityScore": {
+                "post": {
+                    "summary": "",
+                    "description": "",
+                    "consumes": [
+                        "application/json"
+                    ],
+                    "produces": [],
+                    "parameters": [],
+                    "responses": {}
+                }
+            }
+        },
+        "editableListData": {
+            "responses": [],
+            "params": [],
+            "produces": [],
+            "consumes": [
+                {
+                    "key": "application/json",
+                    "rowId": "sd_CrcE4GWsIGZgxlXW",
+                    "valid": true
+                }
+            ]
+        },
+        "inputs": 0,
+        "outputs": 1,
+        "category": "HTTP",
+        "__ssdTypeInputs__": {
+            "uploadpath": {
+                "type": "str",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "x": 125,
+        "y": 640,
+        "wires": [
+            [
+                "sd_0JxabK1Kfmrpjd78"
+            ]
+        ],
+        "generateNext": true,
+        "serviceName": "readability",
+        "functionName": "sd_aifdTTdXjme4BN56"
+    },
+    {
+        "id": "sd_0JxabK1Kfmrpjd78",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_AXsH5mI4aMeYTqYm",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "const rs = require('text-readability')\n\nlet body = bh.input.body;\n\nif (body && body.text) {\n    bh.result ={\n      daleChallReadabilityScore: rs.daleChallReadabilityScore(body.text)\n    } \n    bh.statusCode = 200;\n} else {\n    bh.statusCode = 500;\n    bh.result = {\n        message : 'invalid body'\n    }\n}",
+        "functionName": "sd_0JxabK1Kfmrpjd78",
+        "category": "Function",
+        "__n_excludedFromValidation__": {},
+        "x": 300,
+        "y": 640,
+        "wires": [
+            [
+                "sd_PmhiYdcHbhYeWxxv"
+            ]
+        ],
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_pCFgNoUPf571G6M3",
+        "type": "HttpIn",
+        "z": "SSD_SERVICE_ID_sd_AXsH5mI4aMeYTqYm",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "gunningFog",
+        "path": "readability/gunningFog",
+        "uploadpath": "",
+        "summary": "",
+        "description": "",
+        "method": "post",
+        "sequenceId": "",
+        "consumes": "",
+        "produces": "",
+        "filetype": "path",
+        "acceptFileUpload": false,
+        "httpOptions": {
+            "readability/gunningFog": {
+                "post": {
+                    "summary": "",
+                    "description": "",
+                    "consumes": [
+                        "application/json"
+                    ],
+                    "produces": [],
+                    "parameters": [],
+                    "responses": {}
+                }
+            }
+        },
+        "editableListData": {
+            "responses": [],
+            "params": [],
+            "produces": [],
+            "consumes": [
+                {
+                    "key": "application/json",
+                    "rowId": "sd_CrcE4GWsIGZgxlXW",
+                    "valid": true
+                }
+            ]
+        },
+        "inputs": 0,
+        "outputs": 1,
+        "category": "HTTP",
+        "__ssdTypeInputs__": {
+            "uploadpath": {
+                "type": "str",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "x": 125,
+        "y": 720,
+        "wires": [
+            [
+                "sd_rxmjgJSDGJ2hHtnH"
+            ]
+        ],
+        "generateNext": true,
+        "serviceName": "readability",
+        "functionName": "sd_pCFgNoUPf571G6M3"
+    },
+    {
+        "id": "sd_rxmjgJSDGJ2hHtnH",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_AXsH5mI4aMeYTqYm",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "const rs = require('text-readability')\n\nlet body = bh.input.body;\n\nif (body && body.text) {\n    bh.result ={\n      FOGIndex: rs.gunningFog(body.text)\n    } \n    bh.statusCode = 200;\n} else {\n    bh.statusCode = 500;\n    bh.result = {\n        message : 'invalid body'\n    }\n}",
+        "functionName": "sd_rxmjgJSDGJ2hHtnH",
+        "category": "Function",
+        "__n_excludedFromValidation__": {},
+        "x": 305,
+        "y": 720,
+        "wires": [
+            [
+                "sd_PmhiYdcHbhYeWxxv"
+            ]
+        ],
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_ys6nFz1gmczpFEjs",
+        "type": "HttpIn",
+        "z": "SSD_SERVICE_ID_sd_AXsH5mI4aMeYTqYm",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "textStandard",
+        "path": "readability/textStandard",
+        "uploadpath": "",
+        "summary": "",
+        "description": "",
+        "method": "post",
+        "sequenceId": "",
+        "consumes": "",
+        "produces": "",
+        "filetype": "path",
+        "acceptFileUpload": false,
+        "httpOptions": {
+            "readability/textStandard": {
+                "post": {
+                    "summary": "",
+                    "description": "",
+                    "consumes": [
+                        "application/json"
+                    ],
+                    "produces": [],
+                    "parameters": [],
+                    "responses": {}
+                }
+            }
+        },
+        "editableListData": {
+            "responses": [],
+            "params": [],
+            "produces": [],
+            "consumes": [
+                {
+                    "key": "application/json",
+                    "rowId": "sd_CrcE4GWsIGZgxlXW",
+                    "valid": true
+                }
+            ]
+        },
+        "inputs": 0,
+        "outputs": 1,
+        "category": "HTTP",
+        "__ssdTypeInputs__": {
+            "uploadpath": {
+                "type": "str",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "x": 125,
+        "y": 820,
+        "wires": [
+            [
+                "sd_YBpoDQR4KG1Kx4VB"
+            ]
+        ],
+        "generateNext": true,
+        "serviceName": "readability",
+        "functionName": "sd_ys6nFz1gmczpFEjs"
+    },
+    {
+        "id": "sd_YBpoDQR4KG1Kx4VB",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_AXsH5mI4aMeYTqYm",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "const rs = require('text-readability')\n\nlet body = bh.input.body;\n\nif (body && body.text) {\n    bh.result ={\n      textStandard: rs.textStandard(body.text)\n    } \n    bh.statusCode = 200;\n} else {\n    bh.statusCode = 500;\n    bh.result = {\n        message : 'invalid body'\n    }\n}",
+        "functionName": "sd_YBpoDQR4KG1Kx4VB",
+        "category": "Function",
+        "__n_excludedFromValidation__": {},
+        "x": 290,
+        "y": 827.265625,
+        "wires": [
+            [
+                "sd_PmhiYdcHbhYeWxxv"
+            ]
+        ],
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_HVvGkFwSPd6U0EHc",
+        "type": "HttpIn",
+        "z": "SSD_SERVICE_ID_sd_AXsH5mI4aMeYTqYm",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "syllableCount",
+        "path": "readability/syllableCount",
+        "uploadpath": "",
+        "summary": "",
+        "description": "",
+        "method": "post",
+        "sequenceId": "",
+        "consumes": "",
+        "produces": "",
+        "filetype": "path",
+        "acceptFileUpload": false,
+        "httpOptions": {
+            "readability/syllableCount": {
+                "post": {
+                    "summary": "",
+                    "description": "",
+                    "consumes": [
+                        "application/json"
+                    ],
+                    "produces": [],
+                    "parameters": [],
+                    "responses": {}
+                }
+            }
+        },
+        "editableListData": {
+            "responses": [],
+            "params": [],
+            "produces": [],
+            "consumes": [
+                {
+                    "key": "application/json",
+                    "rowId": "sd_CrcE4GWsIGZgxlXW",
+                    "valid": true
+                }
+            ]
+        },
+        "inputs": 0,
+        "outputs": 1,
+        "category": "HTTP",
+        "__ssdTypeInputs__": {
+            "uploadpath": {
+                "type": "str",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "x": 126.25,
+        "y": 931.015625,
+        "wires": [
+            [
+                "sd_Nf7BT3jSY9VAm7tg"
+            ]
+        ],
+        "generateNext": true,
+        "serviceName": "readability",
+        "functionName": "sd_HVvGkFwSPd6U0EHc"
+    },
+    {
+        "id": "sd_Nf7BT3jSY9VAm7tg",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_AXsH5mI4aMeYTqYm",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "const rs = require('text-readability')\n\nlet body = bh.input.body;\n\nif (body && body.text) {\n    bh.result ={\n      syllableCount: rs.syllableCount(body.text)\n    } \n    bh.statusCode = 200;\n} else {\n    bh.statusCode = 500;\n    bh.result = {\n        message : 'invalid body'\n    }\n}",
+        "functionName": "sd_Nf7BT3jSY9VAm7tg",
+        "category": "Function",
+        "__n_excludedFromValidation__": {},
+        "x": 291.25,
+        "y": 938.28125,
+        "wires": [
+            [
+                "sd_PmhiYdcHbhYeWxxv"
+            ]
+        ],
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_akcf2bwlm4b6DQCe",
+        "type": "HttpIn",
+        "z": "SSD_SERVICE_ID_sd_AXsH5mI4aMeYTqYm",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "lexiconCount",
+        "path": "readability/lexiconCount",
+        "uploadpath": "",
+        "summary": "",
+        "description": "",
+        "method": "post",
+        "sequenceId": "",
+        "consumes": "",
+        "produces": "",
+        "filetype": "path",
+        "acceptFileUpload": false,
+        "httpOptions": {
+            "readability/lexiconCount": {
+                "post": {
+                    "summary": "",
+                    "description": "",
+                    "consumes": [
+                        "application/json"
+                    ],
+                    "produces": [],
+                    "parameters": [],
+                    "responses": {}
+                }
+            }
+        },
+        "editableListData": {
+            "responses": [],
+            "params": [],
+            "produces": [],
+            "consumes": [
+                {
+                    "key": "application/json",
+                    "rowId": "sd_CrcE4GWsIGZgxlXW",
+                    "valid": true
+                }
+            ]
+        },
+        "inputs": 0,
+        "outputs": 1,
+        "category": "HTTP",
+        "__ssdTypeInputs__": {
+            "uploadpath": {
+                "type": "str",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "x": 127.5,
+        "y": 1033.515625,
+        "wires": [
+            [
+                "sd_geSBbzLD6mqj8Jfz"
+            ]
+        ],
+        "generateNext": true,
+        "serviceName": "readability",
+        "functionName": "sd_akcf2bwlm4b6DQCe"
+    },
+    {
+        "id": "sd_geSBbzLD6mqj8Jfz",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_AXsH5mI4aMeYTqYm",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "const rs = require('text-readability')\n\nlet body = bh.input.body;\n\nif (body && body.text) {\n    bh.result ={\n      lexiconCount: rs.lexiconCount(body.text)\n    } \n    bh.statusCode = 200;\n} else {\n    bh.statusCode = 500;\n    bh.result = {\n        message : 'invalid body'\n    }\n}",
+        "functionName": "sd_geSBbzLD6mqj8Jfz",
+        "category": "Function",
+        "__n_excludedFromValidation__": {},
+        "x": 292.5,
+        "y": 1040.78125,
+        "wires": [
+            [
+                "sd_PmhiYdcHbhYeWxxv"
+            ]
+        ],
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_XWv5sGvUBgh3HTgm",
+        "type": "HttpIn",
+        "z": "SSD_SERVICE_ID_sd_AXsH5mI4aMeYTqYm",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "sentenceCount",
+        "path": "readability/sentenceCount",
+        "uploadpath": "",
+        "summary": "",
+        "description": "",
+        "method": "post",
+        "sequenceId": "",
+        "consumes": "",
+        "produces": "",
+        "filetype": "path",
+        "acceptFileUpload": false,
+        "httpOptions": {
+            "readability/sentenceCount": {
+                "post": {
+                    "summary": "",
+                    "description": "",
+                    "consumes": [
+                        "application/json"
+                    ],
+                    "produces": [],
+                    "parameters": [],
+                    "responses": {}
+                }
+            }
+        },
+        "editableListData": {
+            "responses": [],
+            "params": [],
+            "produces": [],
+            "consumes": [
+                {
+                    "key": "application/json",
+                    "rowId": "sd_CrcE4GWsIGZgxlXW",
+                    "valid": true
+                }
+            ]
+        },
+        "inputs": 0,
+        "outputs": 1,
+        "category": "HTTP",
+        "__ssdTypeInputs__": {
+            "uploadpath": {
+                "type": "str",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "x": 125,
+        "y": 1140,
+        "wires": [
+            [
+                "sd_t6k5SU99wYLzP5Gr"
+            ]
+        ],
+        "generateNext": true,
+        "serviceName": "readability",
+        "functionName": "sd_XWv5sGvUBgh3HTgm"
+    },
+    {
+        "id": "sd_t6k5SU99wYLzP5Gr",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_AXsH5mI4aMeYTqYm",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "const rs = require('text-readability')\n\nlet body = bh.input.body;\n\nif (body && body.text) {\n    bh.result ={\n      sentenceCount: rs.sentenceCount(body.text)\n    } \n    bh.statusCode = 200;\n} else {\n    bh.statusCode = 500;\n    bh.result = {\n        message : 'invalid body'\n    }\n}",
+        "functionName": "sd_t6k5SU99wYLzP5Gr",
+        "category": "Function",
+        "__n_excludedFromValidation__": {},
+        "x": 288.75,
+        "y": 1152.03125,
+        "wires": [
+            [
+                "sd_PmhiYdcHbhYeWxxv"
+            ]
+        ],
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_93lS36JEDkZXfQ0H",
+        "type": "HttpIn",
+        "z": "SSD_SERVICE_ID_sd_AXsH5mI4aMeYTqYm",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "smogIndex",
+        "path": "readability/smogIndex",
+        "uploadpath": "",
+        "summary": "",
+        "description": "",
+        "method": "post",
+        "sequenceId": "",
+        "consumes": "",
+        "produces": "",
+        "filetype": "path",
+        "acceptFileUpload": false,
+        "httpOptions": {
+            "readability/smogIndex": {
+                "post": {
+                    "summary": "",
+                    "description": "",
+                    "consumes": [
+                        "application/json"
+                    ],
+                    "produces": [],
+                    "parameters": [],
+                    "responses": {}
+                }
+            }
+        },
+        "editableListData": {
+            "responses": [],
+            "params": [],
+            "produces": [],
+            "consumes": [
+                {
+                    "key": "application/json",
+                    "rowId": "sd_CrcE4GWsIGZgxlXW",
+                    "valid": true
+                }
+            ]
+        },
+        "inputs": 0,
+        "outputs": 1,
+        "category": "HTTP",
+        "__ssdTypeInputs__": {
+            "uploadpath": {
+                "type": "str",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "x": 125,
+        "y": 1240,
+        "wires": [
+            [
+                "sd_cdhVRC3VXpN464ve"
+            ]
+        ],
+        "generateNext": true,
+        "serviceName": "readability",
+        "functionName": "sd_93lS36JEDkZXfQ0H"
+    },
+    {
+        "id": "sd_cdhVRC3VXpN464ve",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_AXsH5mI4aMeYTqYm",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "const rs = require('text-readability')\n\nlet body = bh.input.body;\n\nif (body && body.text) {\n    bh.result ={\n      smogIndex: rs.smogIndex(body.text)\n    } \n    bh.statusCode = 200;\n} else {\n    bh.statusCode = 500;\n    bh.result = {\n        message : 'invalid body'\n    }\n}",
+        "functionName": "sd_cdhVRC3VXpN464ve",
+        "category": "Function",
+        "__n_excludedFromValidation__": {},
+        "x": 288.75,
+        "y": 1252.03125,
+        "wires": [
+            [
+                "sd_PmhiYdcHbhYeWxxv"
+            ]
+        ],
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_eQ6gkY6tQ9WF5ajN",
+        "type": "HttpOut",
+        "z": "SSD_SERVICE_ID_sd_AXsH5mI4aMeYTqYm",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "headers": {},
+        "responseBody": {
+            "type": "bh",
+            "value": "error.message",
+            "ssd_typedInputField": true
+        },
+        "httpcode": {
+            "type": "num",
+            "value": 500,
+            "ssd_typedInputField": true
+        },
+        "responseType": "obj",
+        "responseMapping": {
+            "status": 500,
+            "obj": "bh.error.message",
+            "send": "bh.error.message"
+        },
+        "inputs": 1,
+        "outputs": 0,
+        "editableListData": {
+            "headers": []
+        },
+        "cookiesList": {},
+        "switchStates": {
+            "headers": "Map",
+            "cookies": "Map"
+        },
+        "functionName": "sd_eQ6gkY6tQ9WF5ajN",
+        "category": "HTTP",
+        "__n_excludedFromValidation__": {},
+        "x": 785,
+        "y": 1020,
+        "wires": [],
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_1hSDuczamwaLa9YV",
+        "type": "Catch",
+        "z": "SSD_SERVICE_ID_sd_AXsH5mI4aMeYTqYm",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "selectedNodes": "all-nodes",
+        "selectCatchType": "allnodes",
+        "masternodeList": "",
+        "ignoreList": [
+            "sd_eQ6gkY6tQ9WF5ajN"
+        ],
+        "functionName": "sd_1hSDuczamwaLa9YV",
+        "category": "General",
+        "__n_excludedFromValidation__": {},
+        "x": 660,
+        "y": 1020,
+        "wires": [
+            [
+                "sd_eQ6gkY6tQ9WF5ajN"
+            ]
+        ],
+        "generateNext": true,
+        "serviceName": "readability"
+    }
+]
